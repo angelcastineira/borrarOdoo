@@ -1,0 +1,104 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!-- id que le me de la gana pero distinto -->
+    <record model="ir.ui.view" id="openacademy.list1">
+      <field name="name">openacademy list</field>
+      <!-- en el model el nombre de la TABLA -->
+      <field name="model">test_model</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <!-- igual a los de model -->
+          <field name="name"/>
+          <field name="description"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+        <record model="ir.ui.view" id="openacademy.list2">
+      <field name="name">openacademy list</field>
+      <field name="model">test_model2</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="names"/>
+          <field name="descriptions"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="openacademy.action_window">
+      <field name="name">openacademy window</field>
+      <field name="res_model">openacademy.openacademy</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- id que voy a utilizar luego para que se muestre en un menu, en una lista etc -->
+    <record model="ir.actions.act_window" id="openacademy.action_window">
+      <field name="name">openacademy window</field>
+      <!--nombre de la tabla-->
+      <field name="res_model">test_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="openacademy.action_window_points">
+      <field name="name">openacademy window</field>
+      <field name="res_model">test_model2</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="openacademy.action_server">
+      <field name="name">openacademy server</field>
+      <field name="model_id" ref="model_openacademy_openacademy"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <!-- aqui es como se va mostrar la el modulo -->
+    <!-- nombre que se muestra en el menu -->
+    <menuitem name="openacademy_v2" id="openacademy.menu_root"/>
+
+    <!-- menu categories -->
+    <!-- menu en el que luego mostramos las listas -->
+    <menuitem name="Menu 1" id="openacademy.menu_1" parent="openacademy.menu_root"/>
+
+    <!-- creamos un boton -->
+    <!-- cd yo pulso el bton con el action me va a mostrar directamente la tabla -->
+    <menuitem name="Boton 1" id="openacademy.boton_1" parent="openacademy.menu_root"   action="openacademy.action_window_points" />
+
+
+    <!-- actions -->
+    <!-- listas que muestran el menu -->
+    <!-- action para llamar a la tabla -->
+    <menuitem name="List" id="openacademy.menu_1_list" parent="openacademy.menu_1"
+              action="openacademy.action_window"/>
+
+    <menuitem name="List2" id="openacademy.menu_1_list2" parent="openacademy.menu_1"
+              action="openacademy.action_window_points"/>
+<!--
+    <menuitem name="List" id="openacademy.menu_1_list" parent="openacademy.menu_1"
+              action="openacademy.action_window"/>
+    <menuitem name="Server to list" id="openacademy" parent="openacademy.menu_2"
+              action="openacademy.action_server"/>
+-->
+  </data>
+</odoo>

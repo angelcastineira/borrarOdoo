@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <!--test_model nombre de la tabla, el id no le voy a hacer ref, le puedo poner nombre que quiera-->
+        <record model="test_model" id="openacademy.nombres">
+            <!--campos que tiene mi tabla. "name" y "description" hacen red a los elementos que hemos puedo en el model-->
+            <field name="name">Pepe</field> <!-- El nombre debe ser el mismo que la variable del modelo -->
+            <field name="description">50</field> <!--El nombre debe ser el mismo que la variable del modelo-->
+        </record>
+        <record model="test_model2" id="openacademy.points">
+            <field name="names">marcos</field> <!-- El nombre debe ser el mismo que la variable del modelo -->
+            <field name="descriptions">5230</field> <!--El nombre debe ser el mismo que la variable del modelo-->
+        </record>
+    </data>
+</odoo>
